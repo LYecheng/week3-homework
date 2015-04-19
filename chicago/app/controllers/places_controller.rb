@@ -5,7 +5,11 @@ class PlacesController < ApplicationController
 	end
 
 	def show
-		@place = Place.find_by(:id => params["id"])
+		@entry = Place.find_by(:id => params["id"])
+		@entry_title = @entry[:title]
+		@entry_pic_url = @entry[:photo_url]
+		@entry_price = @entry[:admission_price]
+		@entry_description = @entry[:description]
 	end
 
 	def delete
@@ -15,11 +19,13 @@ class PlacesController < ApplicationController
 	end
 
 	def new
+		redirect_to "/places/new"
 		
 	end
 
 	def create
 		
+		redirect_to "/places"
 	end
 
 	def edit
@@ -31,3 +37,8 @@ class PlacesController < ApplicationController
 	end
 
 end
+
+  # title: string
+  # photo_url: string
+  # admission_price: integer
+  # description: text
