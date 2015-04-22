@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "reviews", force: true do |t|
-    t.string  "titile"
     t.integer "rating"
     t.text    "description"
+    t.integer "place_id"
   end
+
+  add_index "reviews", ["place_id"], name: "index_reviews_on_place_id"
 
 end

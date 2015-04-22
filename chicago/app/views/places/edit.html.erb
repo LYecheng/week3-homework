@@ -1,0 +1,11 @@
+<h1>Chicago</h1>
+
+<h3>Edit a Place</P></h3>
+<form action="/places/<%= @entry[:id] %>/update">
+	<h5>Title:       <input name="title" value="<%= @entry.title %>" size="40"></h5>
+	<h5>Photo URL:   <input name="photo_url" value="<%= @entry.photo_url %>" size="100"></h5>
+	<h5>Price:       <input name="admission_price" value="<%= @entry.admission_price %>" size="20"></h5>
+	<h5>Description: <br><br>
+	<%= text_field_tag 'description', nil, :value => @entry.description, style:"height:100px; width:600px" %>
+	<p><%= submit_tag "Submit" %></p>
+</form>

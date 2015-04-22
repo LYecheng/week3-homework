@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   
   get '/places/:id/update' => 'places#update'
 
+  get '/places/:id/review' => 'places#review'
 
 end
+
+# index, show, new, edit, update

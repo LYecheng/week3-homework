@@ -20,18 +20,46 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
+  .price {
+    color: green;
+    border: solid 2px green;
+    padding: 4px;
+  }
+  .review{
+  margin-top: 350px;
+  margin-bottom: 00px;
+}
 </style>
 
 
-<h1><%= @entry_title %></h1>
-<h2>Admission Price: <%= number_to_currency(@entry_price/100) %></h2>
+<h1><%= @entry[:title] %></h1>
+<p>
+<span class="price">Admission Price: <%= number_to_currency(@entry[:admission_price], precision:2) %></span>    <%= link_to "edit", "/places/#{@entry.id}/edit" %></p>
 
-<img src=<%= @entry_pic_url %>>
+<img src=<%= @entry[:photo_url] %>>
 
 <p><h2>Description: </h2></p>
-<h4><%= @entry_description %></h4><br>
+<h5><%= @entry[:description] %></h5><br><br>
 
 <h2>Reviews</h2>
 
 <h3>Write a review</h3>
+<form action=<%= "/places/#{@entry.id}/review" %>>
+<%= select_tag "rating", 
+  "<option value=5>5 star</option>
+  <option value=4>4 star</option>
+  <option value=3>3 star</option>
+  <option value=2>2 star</option>
+  <option value=1>1 star</option>".html_safe, multiple: false %> 
+<%= text_field_tag 'description', nil, maxlength: 50, style:"width:600px" %> 
+<button>Submit</button></form><br>
+
+<% @reviews.each do |review| %>
+  <li>
+    <h4>Rating: <%= review[:rating] %> stars</h4>
+    <h5>   Review: <%= review[:description] %></h5>
+  </li>
+<% end %>
+
+
 

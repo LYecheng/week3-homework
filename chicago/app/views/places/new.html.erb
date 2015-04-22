@@ -1,0 +1,18 @@
+<style>
+	h4 {
+		color: red
+	}
+</style>
+
+<h1>Chicago</h1>
+
+<h3>Add a New Place</P></h3>
+<h4>Note: This page does NOT validate your input. It's your responsibility to make sure they are legal.</h4><br>
+
+<form action="/places/create">
+	<h5>Title:       <input name="title" size="40"></h5>
+	<h5>Photo URL:   <input name="url" size="100"></h5>
+	<h5>Price:       <input name="price" size="20"></h5>
+	<h5>Description: <br><br><%= text_field_tag 'description', nil, style: "height:100px; width:600px", placeholder: 'enter description here...' %>
+	<p><%= submit_tag "Submit" %></p>
+</form>
