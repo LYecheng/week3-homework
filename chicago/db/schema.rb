@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "rating"
     t.text    "description"
     t.integer "place_id"
+    t.string  "title"
   end
 
   add_index "reviews", ["place_id"], name: "index_reviews_on_place_id"

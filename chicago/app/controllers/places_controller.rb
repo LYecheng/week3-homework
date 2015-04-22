@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
 		@title = Place.find_by(:id => params["id"])[:title]
 		@rating = params["rating"]
 		@review = params["review"]
+		@title = params["title"]
 	end
 
 	def delete
@@ -53,6 +54,7 @@ class PlacesController < ApplicationController
 	def review
 		r = Review.new
 		r[:place_id] = params["id"]
+		r[:title] = params["title"]
 		r[:rating] = params["rating"]
 		r[:description] = params["description"]
 		r.save

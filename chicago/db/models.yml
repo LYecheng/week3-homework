@@ -7,6 +7,7 @@ Place
 
 Review
   place_id: integer
+  title: string
   rating: integer
   description: text
 
